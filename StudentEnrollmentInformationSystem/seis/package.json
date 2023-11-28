@@ -1,0 +1,30 @@
+{
+  "name": "seis",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": " next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "d3": "^7.8.5",
+    "encoding": "^0.1.13",
+    "eslint": "8.51.0",
+    "eslint-config-next": "13.5.5",
+    "firebase": "^10.5.1",
+    "firebase-functions": "^4.4.1",
+    "fs": "^0.0.1-security",
+    "next": "13.5.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "daisyui": "^3.9.3",
+    "eslint-config-prettier": "^9.0.0",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.3"
+  }
+}
