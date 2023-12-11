@@ -7,7 +7,6 @@ const page = () => {
   const router = useRouter()
   const { user } = useAuthContext()
   React.useEffect(() => {
-    // console.log(user)
     if (user != null) {
       user.getIdTokenResult().then((idTokenResult) => {
         if (idTokenResult.claims.admin) {

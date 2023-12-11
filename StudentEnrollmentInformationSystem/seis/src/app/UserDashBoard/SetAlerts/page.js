@@ -17,7 +17,6 @@ const page = () => {
   const [enrolled, setenrolled] = React.useState(false)
   const count = React.useRef(0)
   React.useEffect(() => {
-    // console.log(user)
     if (isFirstRender) {
       isFirstRender.current = false
       if (user != null) {
@@ -25,7 +24,6 @@ const page = () => {
           if (idTokenResult.claims.admin) {
             router.replace('/AdminDashBoard')
           } else {
-            // console.log(user.uid, 'users uid')
             getalldocsalerts(user.uid).then((result, error) => {
               if (result) {
                 console.log(
@@ -74,18 +72,14 @@ const page = () => {
         <button
           className='btn join-item rounded-r-full'
           onClick={(e) => {
-            // setdata(e)
             if (data !== '') {
               addDataalerts(user.uid, data).then((result, error) => {
                 if (result) {
-                  // console.log(result, 'adddeddd hehehe')
                   setenrolled(true)
-                  // console.log('data', data, 'boiii')
                   alert('enrollment successful')
                   router.replace('/UserDashBoard')
                 }
               })
-              // console.log(data)
             } else {
               alert('You have reached Alert Registration limit')
               router.replace('/UserDashBoard')

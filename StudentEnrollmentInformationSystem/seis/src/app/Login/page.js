@@ -103,7 +103,6 @@ const Login = () => {
                   alert('Invalid credentials')
                   return console.log(error)
                 }
-                // console.log(result)
                 return router.replace('/UserDashBoard')
               }
             }}
@@ -151,16 +150,6 @@ const Login = () => {
           </button>
         </div>
       </form>
-      {/* <div className='form-control w-full max-w-xs '>
-        <button
-          className='btn btn-xs sm:btn-sm md:btn-md lg:btn-lg'
-          onClick={(e) => {
-            router.replace('/SignUp')
-          }}
-        >
-          New User? Signup here!
-        </button>
-      </div> */}
     </>
   )
 }

@@ -17,7 +17,6 @@ const page = () => {
   const isFirstRender = React.useRef(true)
   const [changed, setchanged] = React.useState(false)
   React.useEffect(() => {
-    // console.log(user)
     if (isFirstRender.current) {
       isFirstRender.current = false
       if (user != null) {
@@ -28,19 +27,12 @@ const page = () => {
             getdocsbyuidseis(user.uid).then((result, error) => {
               if (result && result.send.length > 0) {
                 eref.current = result.send
-                // console.log(
-                //   result.send,
-                //   'heheh result at getdocsbyuidseis',
-                //   eref.current,
-                //   eref.current.length
-                // )
                 seten(true)
               }
               if (error) console.log(error)
             })
             getdocsbyuidalerts(user.uid).then((result, error) => {
               if (result && result.send.length > 0) {
-                // console.log(result.send, 'heheh result at getdocsbyuidalerts')
                 aref.current = result.send
                 setan(true)
               }

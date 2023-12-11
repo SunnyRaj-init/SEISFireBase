@@ -16,7 +16,6 @@ const Login = () => {
   const router = useRouter()
   const { user } = useAuthContext()
   React.useEffect(() => {
-    // console.log(user)
     if (user != null) {
       user.getIdTokenResult().then((idTokenResult) => {
         if (idTokenResult.claims.admin) {
@@ -43,14 +42,6 @@ const Login = () => {
         // })
       })
       .catch((error) => {
-        // Handle Errors here.
-        // const errorCode = error.code
-        // const errorMessage = error.message
-        // The email of the user's account used.
-        // const email = error.customData.email
-        // The AuthCredential type that was used.
-        // const credential = GoogleAuthProvider.credentialFromError(error)
-        // ...
         alert(error.message)
       })
   }
@@ -143,7 +134,6 @@ const Login = () => {
                                   'role created successfuly authenticate again to gain access'
                                 )
                                 router.replace('/Login')
-                                console.log('Signed out successfully')
                               })
                               .catch((error) => {
                                 // An error happened.
