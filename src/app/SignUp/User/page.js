@@ -112,9 +112,9 @@ const Login = () => {
           <button
             className='btn btn-xs sm:btn-sm md:btn-md lg:btn-lg'
             onClick={async (e) => {
-              if (uname.length >= 0 && pass.length > 8 && cpass === pass) {
+              if (uname.length >= 0 && pass.length >= 8 && cpass === pass) {
                 e.preventDefault()
-                console.log('admin is signing up')
+                console.log('user is signing up')
                 const { result, error } = await signUp(uname, pass)
                 if (error) {
                   return console.log(error)

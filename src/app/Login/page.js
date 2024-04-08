@@ -96,7 +96,7 @@ const Login = () => {
           <button
             className='btn btn-xs sm:btn-sm md:btn-md lg:btn-lg'
             onClick={async (e) => {
-              if (uname.length >= 0 && pass.length > 8) {
+              if (uname.length >= 0 && pass.length >= 8) {
                 e.preventDefault()
                 const { result, error } = await signIn(uname, pass)
                 if (error) {
