@@ -1,23 +1,22 @@
 'use client'
-import React, { useState } from 'react'
+import { useState,useEffect,useRef } from 'react'
 import '../globals.css'
 import NavBar from './NavBar'
-import LinePlot from './LinePlot'
 import { useAuthContext } from '@/src/context/AuthContext'
 import { useRouter } from 'next/navigation'
 import LineGraph from './LineGraph'
 import getsummaire from '@/src/firebase/firestore/getsummaire'
 import getalldocssummaire from '@/src/firebase/firestore/getalldocssummaire'
 const page = () => {
-  const [data, setdata] = React.useState('')
-  const [vdata, setvdata] = React.useState(null)
+  const [data, setdata] = useState('')
+  const [vdata, setvdata] = useState(null)
   const { user } = useAuthContext()
   const [ac, setac] = useState(false)
   const router = useRouter()
-  const opts = React.useRef([])
-  const isFirstRender = React.useRef(true)
-  const [op, setop] = React.useState(false)
-  React.useEffect(() => {
+  const opts = useRef([])
+  const isFirstRender = useRef(true)
+  const [op, setop] = useState(false)
+  useEffect(() => {
     if (isFirstRender) {
       isFirstRender.current = false
       if (user != null) {
@@ -72,7 +71,6 @@ const page = () => {
           </div>
         </div>
         <br />
-        {/* <LinePlot data={["2020-11-1","2020-11-2","2020-11-3","2020-11-4"]} datay={[2,3,4,5]} /> */}
         {data && data != '' && vdata && (
           <LineGraph
             data={Object.entries(
