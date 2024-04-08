@@ -1,8 +1,7 @@
 'use client'
 import '../../globals.css'
 import signUp from '@/src/firebase/signup'
-import React from 'react'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
 import { auth } from '@/src/context/AuthContext'
@@ -13,7 +12,7 @@ const Login = () => {
   const [cpass, setcpass] = useState('')
   const router = useRouter()
   const { user } = useAuthContext()
-  React.useEffect(() => {
+  useEffect(() => {
     // console.log(user)
     if (user != null) {
       user.getIdTokenResult().then((idTokenResult) => {

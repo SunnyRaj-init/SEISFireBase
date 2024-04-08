@@ -1,7 +1,6 @@
 'use client'
 import '../../globals.css'
-import React from 'react'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
 import { auth } from '@/src/context/AuthContext'
@@ -15,7 +14,7 @@ const Login = () => {
   const [cpass, setcpass] = useState('')
   const router = useRouter()
   const { user } = useAuthContext()
-  React.useEffect(() => {
+  useEffect(() => {
     if (user != null) {
       user.getIdTokenResult().then((idTokenResult) => {
         if (idTokenResult.claims.admin) {

@@ -1,12 +1,12 @@
 'use client'
-import React from 'react'
 import Link from 'next/link'
 import { useAuthContext } from '@/src/context/AuthContext'
 import { useRouter } from 'next/navigation'
+import { useEffect } from 'react'
 const page = () => {
   const router = useRouter()
   const { user } = useAuthContext()
-  React.useEffect(() => {
+  useEffect(() => {
     if (user != null) {
       user.getIdTokenResult().then((idTokenResult) => {
         if (idTokenResult.claims.admin) {

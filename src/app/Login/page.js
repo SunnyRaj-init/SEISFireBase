@@ -1,6 +1,6 @@
 'use client'
 import '../globals.css'
-import React from 'react'
+import {useEffect} from 'react'
 import signIn from '@/src/firebase/signin'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
@@ -12,7 +12,7 @@ const Login = () => {
   const [pass, setpass] = useState('')
   const router = useRouter()
   const { user } = useAuthContext()
-  React.useEffect(() => {
+  useEffect(() => {
     // console.log(user)
     if (user != null) {
       user.getIdTokenResult().then((idTokenResult) => {

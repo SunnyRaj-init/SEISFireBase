@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import {useState,useEffect,useRef} from 'react'
 import '../../globals.css'
 import NavBar from '../NavBar'
 import { useAuthContext } from '@/src/context/AuthContext'
@@ -7,15 +7,15 @@ import { useRouter } from 'next/navigation'
 import getalldocs from '@/src/firebase/firestore/getalldocs'
 import addDataseis from '@/src/firebase/firestore/adddata'
 const page = () => {
-  const [data, setdata] = React.useState('')
+  const [data, setdata] = useState('')
   const { user } = useAuthContext()
   const router = useRouter()
-  const opts = React.useRef([])
-  const isFirstRender = React.useRef(true)
-  const [op, setop] = React.useState(false)
-  const [enrolled, setenrolled] = React.useState(false)
-  const count = React.useRef(0)
-  React.useEffect(() => {
+  const opts = useRef([])
+  const isFirstRender = useRef(true)
+  const [op, setop] = useState(false)
+  const [enrolled, setenrolled] = useState(false)
+  const count = useRef(0)
+  useEffect(() => {
     if (isFirstRender) {
       isFirstRender.current = false
       if (user != null) {

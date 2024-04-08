@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import {useState,useRef,useEffect} from 'react'
 import '../globals.css'
 import NavBar from './NavBar'
 import Tabled from './tabled'
@@ -10,13 +10,13 @@ import getdocsbyuidalerts from '@/src/firebase/firestore/getdocsalerts'
 const page = () => {
   const router = useRouter()
   const { user } = useAuthContext()
-  const eref = React.useRef([]) //id of enrolled courses
-  const [en, seten] = React.useState(false)
-  const [an, setan] = React.useState(false)
-  const aref = React.useRef([]) // ids of alerted courses
-  const isFirstRender = React.useRef(true)
-  const [changed, setchanged] = React.useState(false)
-  React.useEffect(() => {
+  const eref = useRef([]) //id of enrolled courses
+  const [en, seten] = useState(false)
+  const [an, setan] = useState(false)
+  const aref = useRef([]) // ids of alerted courses
+  const isFirstRender = useRef(true)
+  const [changed, setchanged] = useState(false)
+  useEffect(() => {
     if (isFirstRender.current) {
       isFirstRender.current = false
       if (user != null) {
