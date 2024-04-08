@@ -24,9 +24,6 @@ const page = () => {
         user.getIdTokenResult().then((idTokenResult) => {
           if (idTokenResult.claims.admin) {
             setac(true)
-            // getsummaire('IFT510').then((result, error) => {
-            //   console.log(result, 'bhaiyaaa')
-            // })
             getalldocssummaire().then((result, error) => {
               console.log(result)
               setop(true)
